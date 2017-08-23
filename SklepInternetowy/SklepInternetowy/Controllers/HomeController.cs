@@ -9,6 +9,7 @@ namespace SklepInternetowy.Controllers
     public class HomeController : Controller
     {
         // GET: Home
+        //komentarz
         public ActionResult Index()
         {
             return View();
