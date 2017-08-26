@@ -1,4 +1,5 @@
 ﻿using System;
+using System.ComponentModel.DataAnnotations;
 
 namespace SklepInternetowy.Models
 {
@@ -6,9 +7,18 @@ namespace SklepInternetowy.Models
     {
         public int SupplementId { get; set; }
         public int CategoryId { get; set; }
+
+        [Required(ErrorMessage = "Wprowadź nazwę produktu!")]
+        [StringLength(100)]
         public string Name { get; set; }
+
+        [Required(ErrorMessage = "Wprowadź producenta!")]
+        [StringLength(100)]
         public string Producer { get; set; }
+
         public DateTime AddTime { get; set; }
+
+        [StringLength(100)]
         public string ImageFileName { get; set; }
         public string Description { get; set; }
         public decimal Price { get; set; }
