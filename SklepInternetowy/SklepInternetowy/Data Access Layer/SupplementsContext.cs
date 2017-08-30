@@ -10,6 +10,11 @@ namespace SklepInternetowy.Data_Access_Layer
         {
         }
 
+        static SupplementsContext()
+        {
+           Database.SetInitializer<SupplementsContext>(new SupplementsInitializer());
+        }
+
         public DbSet<Supplement> Supplements { get; set; }
         public DbSet<Category> Categories { get; set; }
         public DbSet<Order> Orders { get; set; }

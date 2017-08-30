@@ -1,4 +1,5 @@
-﻿using SklepInternetowy.Data_Access_Layer;
+﻿using System.Linq;
+using SklepInternetowy.Data_Access_Layer;
 using SklepInternetowy.Models;
 using System.Web.Mvc;
 
@@ -11,15 +12,7 @@ namespace SklepInternetowy.Controllers
 
         public ActionResult Index()
         {
-            Category category = new Category()
-            {
-                CategoryName = "Witaminy i minerały",
-                IconFileName = "Witaminy.png",
-                CategoryDescription = "Najważniejsze elementy zapewniające zdrowie, energię i witalność"
-            };
-
-            db.Categories.Add(category);
-            db.SaveChanges();
+            var supplementslist = db.Categories.ToList();
             return View();
         }
     }
