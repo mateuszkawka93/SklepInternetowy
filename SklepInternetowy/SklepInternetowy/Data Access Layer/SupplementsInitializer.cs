@@ -2,18 +2,14 @@
 using System;
 using System.Collections.Generic;
 using System.Data.Entity;
+using System.Data.Entity.Migrations;
 
 namespace SklepInternetowy.Data_Access_Layer
 {
-    public class SupplementsInitializer : DropCreateDatabaseAlways<SupplementsContext>
+    public class SupplementsInitializer : MigrateDatabaseToLatestVersion<SupplementsContext, Migrations.Configuration>
     {
-        protected override void Seed(SupplementsContext context)
-        {
-            SeedSupplementsData(context);
-            base.Seed(context);
-        }
-
-        private void SeedSupplementsData(SupplementsContext context)
+       
+        public static void SeedSupplementsData(SupplementsContext context)
         {
             var categories = new List<Category>
             {
@@ -68,7 +64,7 @@ namespace SklepInternetowy.Data_Access_Layer
                 },
             };
 
-            categories.ForEach(cat => context.Categories.Add(cat));
+            categories.ForEach(cat => context.Categories.AddOrUpdate(cat));
             context.SaveChanges();
 
             var supplement = new List<Supplement>()
@@ -76,6 +72,7 @@ namespace SklepInternetowy.Data_Access_Layer
                 new Supplement()
                 {
                     SupplementId = 1,
+                    Producer = "4Nutrition",
                     Name = "VitaminPack",
                     AddTime = DateTime.Now,
                     Bestseller = true,
@@ -87,6 +84,7 @@ namespace SklepInternetowy.Data_Access_Layer
                 new Supplement()
                 {
                     SupplementId = 2,
+                    Producer = "4Nutrition",
                     Name = "Białko WPC 80",
                     AddTime = DateTime.Now,
                     Bestseller = true,
@@ -99,6 +97,7 @@ namespace SklepInternetowy.Data_Access_Layer
                 new Supplement()
                 {
                     SupplementId = 3,
+                    Producer = "4Nutrition",
                     Name = "Pre Workout Hard Plus",
                     AddTime = DateTime.Now,
                     Bestseller = false,
@@ -111,6 +110,7 @@ namespace SklepInternetowy.Data_Access_Layer
                 new Supplement()
                 {
                     SupplementId = 4,
+                    Producer = "4Nutrition",
                     Name = "MSM Siarka Organiczna",
                     AddTime = DateTime.Now,
                     Bestseller = false,
@@ -121,7 +121,7 @@ namespace SklepInternetowy.Data_Access_Layer
                 },
             };
 
-            supplement.ForEach(s => context.Supplements.Add(s));
+            supplement.ForEach(s => context.Supplements.AddOrUpdate(s));
             context.SaveChanges();
         }
     }
