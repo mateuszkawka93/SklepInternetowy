@@ -1,6 +1,5 @@
-﻿using System.Linq;
-using SklepInternetowy.Data_Access_Layer;
-using SklepInternetowy.Models;
+﻿using SklepInternetowy.Data_Access_Layer;
+using System.Linq;
 using System.Web.Mvc;
 
 namespace SklepInternetowy.Controllers
@@ -14,6 +13,11 @@ namespace SklepInternetowy.Controllers
         {
             var supplementslist = db.Categories.ToList();
             return View();
+        }
+
+        public ActionResult StaticPages(string name)
+        {
+            return View(name);
         }
     }
 }
