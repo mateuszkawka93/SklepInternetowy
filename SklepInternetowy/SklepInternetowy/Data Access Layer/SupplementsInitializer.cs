@@ -31,7 +31,7 @@ namespace SklepInternetowy.Data_Access_Layer
                 {
                     CategoryId = 3,
                     CategoryName = "Białko",
-                    IconFileName = "protein.png",
+                    IconFileName = "wpc.png",
                     CategoryDescription = "Pełnowartościowe białko"
                 },
                 new Category()

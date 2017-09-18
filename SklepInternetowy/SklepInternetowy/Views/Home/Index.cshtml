@@ -1,4 +1,7 @@
-﻿@{
+﻿@using SklepInternetowy.Models
+@model SklepInternetowy.ViewModels.HomeViewModel
+
+@{
     ViewBag.Title = "Sklep z suplementami";
 }
 
@@ -8,27 +11,15 @@
         <div class="navbar-header">
             <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
                 <ul class="nav navbar-nav navbar-center">
-                    <li>
-                        <a href="#"> Potreningowe</a>
-                    </li>
-                    <li>
-                        <a href="#">Przedtreningowe</a>
-                    </li>
-                    <li>
-                        <a href="#">Bialko</a>
-                    </li>
-                    <li>
-                        <a href="#">Gainer</a>
-                    </li>
-                    <li>
-                        <a href="#">Prozdrowotne</a>
-                    </li>
-                    <li>
-                        <a href="#">Witaminy i mineraly</a>
-                    </li>
-                    <li>
-                        <a href="#">Akcesoria i ubrania</a>
-                    </li>
+                    @foreach (var categories in Model.Categories)
+                    {
+                        <li>
+                            <a href="@Url.Action("List", "Supplement", new {categoryname = categories.CategoryName.ToLower()})">
+                                @categories.CategoryName
+                            </a>
+                        </li>
+                    }
+                    
                 </ul>
             </div>
         </div>
