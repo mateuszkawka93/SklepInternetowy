@@ -11,7 +11,7 @@ namespace SklepInternetowy
 
             routes.MapRoute(
                 name: "StaticPages",
-                url: "pages/{name}.html",
+                url: "page/{name}.html",
                 defaults: new {controller = "Home", action = "StaticPages"}
 
             );

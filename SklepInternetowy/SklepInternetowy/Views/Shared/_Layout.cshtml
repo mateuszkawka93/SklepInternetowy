@@ -1,4 +1,5 @@
-﻿<!DOCTYPE html>
+﻿@using SklepInternetowy.Controllers
+<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <head>
     <title>@ViewBag.Title</title>
@@ -15,7 +16,7 @@
                     Koszyk (0)
                     <span></span>
                 </a>
-                <a id="indexHeaderLogo" href="link">
+                <a id="indexHeaderLogo" href="@Url.Content("~/")">
                     <img src="@Url.Content("~/Content/Images/logo.png")" class="center" />
                 </a>
             </div>
@@ -29,12 +30,13 @@
         <footer>
             <nav>
                 <ul>
-                    <li><a href="link">O nas</a></li>
-                    <li><a href="link">Społeczność</a></li>
-                    <li><a href="link">Opinie</a></li>
-                    <li><a href="link">Pomoc</a></li>
-                    <li><a href="link">Regulamin</a></li>
-                    <li><a href="link">Kontakt</a></li>
+                    <li>@Html.ActionLink("O nas", "StaticPages", "Home", new { name = "O_nas"}, null)</li>
+                    <li>@Html.ActionLink("Społeczność", "StaticPages", "Home", new { name = "Spolecznosc" }, null)</li>
+                    <li>@Html.ActionLink("Opinie", "StaticPages", "Home", new { name = "Opinie" }, null)</li>
+                    <li>@Html.ActionLink("Pomoc", "StaticPages", "Home", new { name = "Pomoc" }, null)</li>
+                    <li>@Html.ActionLink("Regulamin", "StaticPages", "Home", new { name = "Regulamin" }, null)</li>
+                    <li>@Html.ActionLink("Kontakt", "StaticPages", "Home", new { name = "Kontakt" }, null)</li>
+                   
                 </ul>
             </nav>
             <div id="footerLogo">
