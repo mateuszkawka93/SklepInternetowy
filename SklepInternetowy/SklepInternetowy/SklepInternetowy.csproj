@@ -201,6 +201,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="App_Start\RouteConfig.cs" />
+    <Compile Include="Controllers\CartController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\SupplementController.cs" />
     <Compile Include="Data Access Layer\SupplementsContext.cs" />
@@ -209,6 +210,8 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
+    <Compile Include="Infrastructure\AppConfig.cs" />
+    <Compile Include="Infrastructure\UrlHelpers.cs" />
     <Compile Include="Migrations\201708262118025_InitialCreate.cs" />
     <Compile Include="Migrations\201708262118025_InitialCreate.Designer.cs">
       <DependentUpon>201708262118025_InitialCreate.cs</DependentUpon>
@@ -245,6 +248,7 @@
     <Content Include="Views\Home\Regulamin.cshtml" />
     <Content Include="Views\Home\Kontakt.cshtml" />
     <Content Include="Views\Supplement\List.cshtml" />
+    <Content Include="Views\Cart\AddToCart.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

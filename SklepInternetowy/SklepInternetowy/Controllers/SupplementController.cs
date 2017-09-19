@@ -10,8 +10,14 @@ namespace SklepInternetowy.Controllers
             return View();
         }
 
-        public ActionResult List()
+        public ActionResult List(string categoryname)
         {
+            return View();
+        }
+
+        public ActionResult Details(string id)
+        {
+            
             return View();
         }
     }

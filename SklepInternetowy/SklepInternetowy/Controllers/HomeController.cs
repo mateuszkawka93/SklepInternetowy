@@ -16,7 +16,7 @@ namespace SklepInternetowy.Controllers
             var categories = db.Categories.ToList();
             var newsupplements = db.Supplements.Where(a => !a.Hidden).OrderByDescending(a => a.AddTime).Take(3).ToList();
             var bestsellersupplements =
-                db.Supplements.Where(a => !a.Hidden && a.Bestseller).OrderBy(a => Guid.NewGuid()).Take(3).ToList();
+                db.Supplements.Where(a => !a.Hidden && a.Bestseller).OrderBy(a => Guid.NewGuid()).Take(3).ToList(); //Guid - nadaje nowy identyfikator za kazdym razem gdy uruchamiamy aplikacje
 
             var viewmodel = new HomeViewModel()
             {

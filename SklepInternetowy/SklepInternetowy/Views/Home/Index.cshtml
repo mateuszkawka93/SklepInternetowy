@@ -1,5 +1,6 @@
 ﻿@using SklepInternetowy.Models
 @model SklepInternetowy.ViewModels.HomeViewModel
+    @using SklepInternetowy.Infrastructure
 
 @{
     ViewBag.Title = "Sklep z suplementami";
@@ -28,94 +29,46 @@
 <div class="container">
     <div class="row">
         <ul class="KursyTrzyKolumny duzaListaKursy">
-            <li>
-                <article>
-                    <a class="dodajDoKoszykaLink" href="link">
-                        <img src="../Content/Images/cart.png"/>
-                    </a>
-                    <a class="kursSzczegolyLink" href="link">
-                        <div class="bestsellerFlag"></div>
-                        <img class="kurs" src="../Content/Products/gainer.png"/>
-                        <h1>
-                            Tutaj będzie tytuł
-                        </h1>
-                    </a>
-                </article>
-            </li>
-            <li>
-                <article>
-                    <a class="dodajDoKoszykaLink" href="link">
-                        <img src="../Content/Images/cart.png"/>
-                    </a>
-                    <a class="kursSzczegolyLink" href="link">
-                        <div class="bestsellerFlag"></div>
-                        <img class="kurs" src="../Content/Products/wpc.jpg"/>
-                        <h1>
-                            Tutaj będzie tytuł
-                        </h1>
-                    </a>
-                </article>
-            </li>
-            <li>
-                <article>
-                    <a class="dodajDoKoszykaLink" href="link">
-                        <img src="../Content/Images/cart.png"/>
-                    </a>
-                    <a class="kursSzczegolyLink" href="link">
-                        <div class="bestsellerFlag"></div>
-                        <img class="kurs" src="../Content/Products/preworkout.png"/>
-                        <h1>
-                            Tutaj będzie tytuł
-                        </h1>
-                    </a>
-                </article>
-            </li>
+            @foreach(var bestseller in Model.BestsellerSupplements)
+    {
+
+
+        <li>
+            <article>
+                <a class="dodajDoKoszykaLink" href="@Url.Action("AddToCart","Cart", new { id = bestseller.SupplementId} )">
+                    <img src="../Content/Images/cart.png"/>
+                </a>
+                <a class="kursSzczegolyLink" href="@Url.Action("Details", "Supplement", new { id = bestseller.SupplementId})">
+                    <div class="bestsellerFlag"></div>
+                    <img class="kurs" src="@Url.ProductsPicturePath(bestseller.ImageFileName)"/>
+                    <h1>
+                       @bestseller.Name - @bestseller.Producer
+                    </h1>
+                </a>
+            </article>
+        </li>
+    }
         </ul>
     </div>
     <div class="row">
         <ul class="KursyTrzyKolumny duzaListaKursy">
-            <li>
-                <article>
-                    <a class="dodajDoKoszykaLink" href="link">
-                        <img src="../Content/Images/cart.png"/>
-                    </a>
-                    <a class="kursSzczegolyLink" href="link">
-                        <div class="newFlag"></div>
-                        <img class="kurs" src="../Content/Products/vitamins.png"/>
-                        <h1>
-                            Tutaj będzie tytuł
-                        </h1>
-                    </a>
-                </article>
-            </li>
-            <li>
-                <article>
-                    <a class="dodajDoKoszykaLink" href="link">
-                        <img src="../Content/Images/cart.png"/>
-                    </a>
-                    <a class="kursSzczegolyLink" href="link">
-                        <div class="newFlag"></div>
-                        <img class="kurs" src="../Content/Products/postworkout.png"/>
-                        <h1>
-                            Tutaj będzie tytuł
-                        </h1>
-                    </a>
-                </article>
-            </li>
-            <li>
-                <article>
-                    <a class="dodajDoKoszykaLink" href="link">
-                        <img src="../Content/Images/cart.png"/>
-                    </a>
-                    <a class="kursSzczegolyLink" href="link">
-                        <div class="newFlag"></div>
-                        <img class="kurs" src="../Content/Products/accessories.png"/>
-                        <h1>
-                            Tutaj będzie tytuł
-                        </h1>
-                    </a>
-                </article>
-            </li>
+            @foreach (var news in Model.NewSupplements)
+            {
+                <li>
+                    <article>
+                        <a class="dodajDoKoszykaLink" href="@Url.Action("AddToCart", "Cart", new { id = news.SupplementId})">
+                            <img src="../Content/Images/cart.png"/>
+                        </a>
+                        <a class="kursSzczegolyLink" href="@Url.Action("Details", "Supplement", new { id= news.SupplementId})">
+                            <div class="newFlag"></div>
+                            <img class="kurs" src="@Url.ProductsPicturePath(news.ImageFileName)"/>
+                            <h1>
+                                @news.Name - @news.Producer
+                            </h1>
+                        </a>
+                    </article>
+                </li>
+            }
         </ul>
     </div>
 </div>

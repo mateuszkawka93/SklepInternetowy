@@ -78,7 +78,7 @@ namespace SklepInternetowy.Data_Access_Layer
                     Bestseller = true,
                     CategoryId = 7,
                     Price = 20,
-                    ImageFileName = "vitaminpack.png",
+                    ImageFileName = "vitamins.png",
                     Description = "Kompleks witamin i minerałów z wysokiej jakości surowców "
                 },
                 new Supplement()
@@ -90,7 +90,7 @@ namespace SklepInternetowy.Data_Access_Layer
                     Bestseller = true,
                     CategoryId = 3,
                     Price = 40,
-                    ImageFileName = "wpc80.png",
+                    ImageFileName = "wpc.jpg",
                     Description = "Kompleks białek serwatkowych "
                 },
 
@@ -103,7 +103,7 @@ namespace SklepInternetowy.Data_Access_Layer
                     Bestseller = false,
                     CategoryId = 1,
                     Price = 50,
-                    ImageFileName = "prehardplus.png",
+                    ImageFileName = "preworkout.png",
                     Description = "Mocny stack przedtreningowy zapewniający wzrost siły i koncentracji "
                 },
 
@@ -116,8 +116,21 @@ namespace SklepInternetowy.Data_Access_Layer
                     Bestseller = false,
                     CategoryId = 5,
                     Price = 25,
-                    ImageFileName = "msm.png",
+                    ImageFileName = "healthy2.png",
                     Description = "Organiczna siarka poprawiająca stan stawów, paznokci i włosów"
+                },
+
+                new Supplement()
+                {
+                    SupplementId = 5,
+                    Producer = "BodyLogix",
+                    Name = "PostWorkout",
+                    AddTime = DateTime.Now,
+                    Bestseller = true,
+                    CategoryId = 2,
+                    Price = 60,
+                    ImageFileName = "postworkout.png",
+                    Description = "Suplement potreningowy zapewniający maksymalnie szybką regenerację"
                 },
             };
 
