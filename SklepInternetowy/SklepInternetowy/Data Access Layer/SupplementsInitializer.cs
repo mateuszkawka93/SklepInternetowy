@@ -132,6 +132,19 @@ namespace SklepInternetowy.Data_Access_Layer
                     ImageFileName = "postworkout.png",
                     Description = "Suplement potreningowy zapewniający maksymalnie szybką regenerację"
                 },
+
+                new Supplement()
+                {
+                    SupplementId = 6,
+                    Producer = "Universal",
+                    Name = "Storm",
+                    AddTime = DateTime.Now,
+                    Bestseller = false,
+                    CategoryId = 2,
+                    Price = 80,
+                    ImageFileName = "postworkout2.png",
+                    Description = "Suplement potreningowy zapewniający maksymalnie szybką regenerację"
+                },
             };
 
             supplement.ForEach(s => context.Supplements.AddOrUpdate(s));
