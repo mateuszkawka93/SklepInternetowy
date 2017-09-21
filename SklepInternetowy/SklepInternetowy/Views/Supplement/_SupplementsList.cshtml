@@ -9,19 +9,18 @@
     {
         <div class="col-md-4 thumbnail" style="overflow: hidden">
             
-            <a class="cartIcon" href="@Url.Action("AddToCart", "Cart", new {id = products.SupplementId})">
-                <img src="@Url.Content("~/Content/Images/cart.png")">
-            </a>
-
-            <a class="details-link" href="@Url.Action("Details", "Supplement", new {id = products.SupplementId})">
-                <img class="product-img" src="@Url.ProductsPicturePath(products.ImageFileName)" style="width:300px;height:300px"/>
-                <h1>
-                    @products.Producer - @products.Name
-                </h1>
-            </a>
-
+                <a class="cartIcon" href="@Url.Action("AddToCart", "Cart", new {id = products.SupplementId})">
+                    <img src="@Url.Content("~/Content/Images/cart.png")">
+                </a>
+                <a class="details-link" href="@Url.Action("Details", "Supplement", new {id = products.SupplementId})">
+                    <img class="product-img" src="@Url.ProductsPicturePath(products.ImageFileName)">
+                    <h1>
+                        @products.Producer - @products.Name
+                    </h1>
+                </a>
+            
         </div>
-        
+      
     }
 
    

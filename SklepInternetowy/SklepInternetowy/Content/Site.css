@@ -1137,39 +1137,16 @@ a.details-link
 	height: 100%;
 }
 
-a img .product-img {
-	position: absolute;
-			top: 0;
-			left: 0;
-			height: 100%;
-			width: 100%;
-			z-index: -1;
-			opacity: 0.1;
-			-webkit-transition: opacity 0.5s ease;
-			-o-transition: opacity 0.5s ease;
-			-moz-transition: opacity 0.5s ease;
-			transition: opacity 0.5s ease;
-}
 
-a:hover img.product-img {
-	
-	opacity: 0.8;
-			-webkit-transition: opacity 1s ease;
-			-o-transition: opacity 1s ease;
-			-moz-transition: opacity 1s ease;
-			transition: opacity 1s ease;
-}
-
-
-
-a h1 {
+div a.details-link h1 {
 	background-color: rgba(255, 255, 255, 0.2);
 			vertical-align: central;
 			padding-top: 10px;
 			padding-bottom: 10px;
 			text-align: center;
 			position: absolute;
-			width: 100%;
+			top:20%;
+			width: 95%;
 			font-weight: normal;
 			/* More intensive album title */
 			/* font-family: 'Segoe UI Semibold', 'Segoe WP', 'Segoe UI'; */
@@ -1177,13 +1154,36 @@ a h1 {
 			-o-transition: all 1s ease;
 			-moz-transition: all 1s ease;
 			transition: all 1s ease;
+			font-size:x-large;
 }
 
-a:hover h1 {
-			background-color: rgba(255, 255, 255, 0.85);
+
+div a.details-link:hover h1 {
+			background-color: rgba(255, 255, 255, 0.6);
 			-webkit-transition: all 0.5s ease;
 			-o-transition: all 0.5s ease;
-			-moz-transition: all 0.5s ease;
+			-moz-transition: all 2s ease;
 			transition: all 0.5s ease;
 }
 
+div a img.product-img {
+		
+		top: 0;
+		left: 0;
+		height: 300px;
+		width: 300px;
+		z-index: -1;
+		opacity: 0.1;
+		-webkit-transition: opacity 0.5s ease;
+		-o-transition: opacity 0.5s ease;
+		-moz-transition: opacity 0.5s ease;
+		transition: opacity 0.5s ease;
+}
+
+div a:hover img.product-img {
+			opacity: 0.8;
+			-webkit-transition: opacity 1s ease;
+			-o-transition: opacity 1s ease;
+			-moz-transition: opacity 1s ease;
+			transition: opacity 1s ease;
+}
