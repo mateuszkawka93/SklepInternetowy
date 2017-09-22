@@ -1,4 +1,4 @@
-﻿html, body, div, span, object, iframe,
+html, body, div, span, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 abbr, address, cite, code,
 del, dfn, em, img, ins, kbd, q, samp,
@@ -176,12 +176,6 @@ a:hover, a:visited, a:link, a:active {
 }
 
 
-
-
-
-
-
-
 #SekcjaKurs {
 	width: 768px;
 	float: left;
@@ -323,18 +317,6 @@ a:hover, a:visited, a:link, a:active {
 	margin-top: 20px;
 }
 
-ul.duzaListaKursy li {
-	width: 333.33px;
-	height: 333.33px;
-}
-
-	ul.duzaListaKursy li a h1 {
-		top: 45%;
-	}
-
-	ul.duzaListaKursy li a:hover h1 {
-		top: 46%;
-	}
 
 ul.MalaListaKategorii li {
 	width: 256px;
@@ -350,146 +332,6 @@ ul.MalaListaKategorii li {
 	}
 
 
-ul.KursyTrzyKolumny {
-	overflow: hidden;
-	list-style-type: none;
-	font-size: 18px;
-}
-
-	ul.KursyTrzyKolumny li {
-		float: left;
-		position: relative;
-		/*opacity: 0.2;*/
-	}
-
-		ul.KursyTrzyKolumny li article {
-			height: 100%;
-		}
-
-		ul.KursyTrzyKolumny li a.dodajDoKoszykaLink {
-			position: absolute;
-			right: 0;
-			bottom: 0;
-		}
-
-			ul.KursyTrzyKolumny li a.dodajDoKoszykaLink img {
-				z-index: 2;
-				position: relative;
-				vertical-align: top;
-			}
-
-		ul.KursyTrzyKolumny li a.kursSzczegolyLink {
-			display: block;
-			height: 100%;
-		}
-
-		ul.KursyTrzyKolumny li a h1 {
-			background-color: rgba(255, 255, 255, 0.2);
-			vertical-align: central;
-			padding-top: 10px;
-			padding-bottom: 10px;
-			text-align: center;
-			position: absolute;
-			width: 100%;
-			font-weight: normal;
-			/* More intensive album title */
-			/* font-family: 'Segoe UI Semibold', 'Segoe WP', 'Segoe UI'; */
-			-webkit-transition: all 1s ease;
-			-o-transition: all 1s ease;
-			-moz-transition: all 1s ease;
-			transition: all 1s ease;
-		}
-
-		ul.KursyTrzyKolumny li a:hover h1 {
-			background-color: rgba(255, 255, 255, 0.85);
-			-webkit-transition: all 0.5s ease;
-			-o-transition: all 0.5s ease;
-			-moz-transition: all 0.5s ease;
-			transition: all 0.5s ease;
-		}
-
-		ul.KursyTrzyKolumny li a img.kurs {
-			position: absolute;
-			top: 0;
-			left: 0;
-			height: 100%;
-			width: 100%;
-			z-index: -1;
-			opacity: 0.1;
-			-webkit-transition: opacity 0.5s ease;
-			-o-transition: opacity 0.5s ease;
-			-moz-transition: opacity 0.5s ease;
-			transition: opacity 0.5s ease;
-		}
-
-		ul.KursyTrzyKolumny li a:hover img.kurs {
-			opacity: 0.8;
-			-webkit-transition: opacity 1s ease;
-			-o-transition: opacity 1s ease;
-			-moz-transition: opacity 1s ease;
-			transition: opacity 1s ease;
-		}
-
-ul.duzaListaKursy-bottom li {
-	width: 333.33px;
-	height: 333.33px;
-	font-size: 15px;
-}
-
-	ul.duzaListaKursy-bottom li a h1 {
-		bottom: 0px;
-	}
-
-
-ul.TrzyKolumnyList {
-	overflow: hidden;
-	list-style-type: none;
-	font-size: 18px;
-}
-
-	ul.TrzyKolumnyList li {
-		float: left;
-		position: relative;
-		/*opacity: 0.2;*/
-	}
-
-		ul.TrzyKolumnyList li article {
-			height: 100%;
-		}
-
-
-		ul.TrzyKolumnyList li a.kursSzczegolyLink {
-			display: block;
-			height: 100%;
-		}
-
-		ul.TrzyKolumnyList li a h1 {
-			background-color: rgba(255, 255, 255, 0);
-			vertical-align: central;
-			padding-top: 10px;
-			padding-bottom: 10px;
-			text-align: center;
-			position: absolute;
-			width: 100%;
-			font-weight: normal;
-			background-color: rgba(255, 255, 255, 0.85);
-		}
-
-		ul.TrzyKolumnyList li a:hover h1 {
-			background-color: rgba(255, 255, 255, 0.85);
-		}
-
-		ul.TrzyKolumnyList li a img.kurs {
-			position: absolute;
-			top: 0;
-			left: 0;
-			height: 100%;
-			width: 100%;
-			z-index: -1;
-		}
-
-		ul.TrzyKolumnyList li a:hover img.kurs {
-		}
 
 .manageHeader {
 	margin-bottom: 30px;
@@ -550,22 +392,24 @@ div.newFlag {
 	background-image: url(Images/new.png);
 	background-repeat: no-repeat;
 	display: block;
-	width: 100%;
-	height: 100%;
+	width: 100px;
+	height: 100px;
 	position: absolute;
 	top: 0;
 	left: 0;
+	z-index:2;
 }
 
 div.bestsellerFlag {
 	background-image: url(Images/bestseller.png);
 	background-repeat: no-repeat;
 	display: block;
-	width: 100%;
-	height: 100%;
+	width: 100px;
+	height: 100px;
 	position: absolute;
 	top: 0;
 	left: 0;
+	z-index: 2;
 }
 
 
@@ -1130,7 +974,6 @@ a.cartIcon img {
 				vertical-align: top;
 }
 
-
 a.details-link
 {
 	display: block;
@@ -1140,7 +983,7 @@ a.details-link
 
 div a.details-link h1 {
 	background-color: rgba(255, 255, 255, 0.2);
-			vertical-align: central;
+	vertical-align: central;
 			padding-top: 10px;
 			padding-bottom: 10px;
 			text-align: center;

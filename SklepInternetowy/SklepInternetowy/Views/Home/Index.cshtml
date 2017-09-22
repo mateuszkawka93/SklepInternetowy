@@ -1,75 +1,70 @@
 ﻿@using SklepInternetowy.Models
 @model SklepInternetowy.ViewModels.HomeViewModel
-    @using SklepInternetowy.Infrastructure
+@using SklepInternetowy.Infrastructure
 
 @{
     ViewBag.Title = "Sklep z suplementami";
 }
 
 <div class="container">
-<nav class="navbar navbar-default" role="navigation">
-    <div class="container">
-        <div class="navbar-header">
-            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
-                <ul class="nav navbar-nav navbar-center">
-                    @foreach (var categories in Model.Categories)
-                    {
-                        <li>
-                            <a href="@Url.Action("List", "Supplement", new {categoryname = categories.CategoryName.ToLower()})">
-                                @categories.CategoryName
-                            </a>
-                        </li>
-                    }
-                    
-                </ul>
+    <nav class="navbar navbar-default" role="navigation">
+        <div class="container">
+            <div class="navbar-header">
+                <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                    <ul class="nav navbar-nav navbar-center">
+                        @foreach (var categories in Model.Categories)
+                        {
+                            <li>
+                                <a href="@Url.Action("List", "Supplement", new {categoryname = categories.CategoryName.ToLower()})">
+                                    @categories.CategoryName
+                                </a>
+                            </li>
+                        }
+
+                    </ul>
+                </div>
             </div>
         </div>
-    </div>
-</nav>
-<div class="container">
-    <div class="row">
-        <ul class="KursyTrzyKolumny duzaListaKursy">
-            @foreach(var bestseller in Model.BestsellerSupplements)
-    {
+    </nav>
+    <div class="container">
+        <div class="row">
 
+            @foreach (var bestseller in Model.BestsellerSupplements)
+            {
+                <div class="col-md-4 thumbnail" style="overflow: hidden">
+                    <a class="cartIcon" href="@Url.Action("AddToCart", "Cart", new {id = bestseller.SupplementId})">
+                        <img src="../Content/Images/cart.png"/>
+                    </a>
+                    <a class="details-link" href="@Url.Action("Details", "Supplement", new {id = bestseller.SupplementId})">
+                        <div class="bestsellerFlag"></div>
+                        <img class="product-img" src="@Url.ProductsPicturePath(bestseller.ImageFileName)"/>
+                        <h1>
+                            @bestseller.Name - @bestseller.Producer
+                        </h1>
+                    </a>
+                </div>
+            }
 
-        <li>
-            <article>
-                <a class="dodajDoKoszykaLink" href="@Url.Action("AddToCart","Cart", new { id = bestseller.SupplementId} )">
-                    <img src="../Content/Images/cart.png"/>
-                </a>
-                <a class="kursSzczegolyLink" href="@Url.Action("Details", "Supplement", new { id = bestseller.SupplementId})">
-                    <div class="bestsellerFlag"></div>
-                    <img class="kurs" src="@Url.ProductsPicturePath(bestseller.ImageFileName)"/>
-                    <h1>
-                       @bestseller.Name - @bestseller.Producer
-                    </h1>
-                </a>
-            </article>
-        </li>
-    }
-        </ul>
-    </div>
-    <div class="row">
-        <ul class="KursyTrzyKolumny duzaListaKursy">
+        </div>
+
+        <div class="row">
+
             @foreach (var news in Model.NewSupplements)
             {
-                <li>
-                    <article>
-                        <a class="dodajDoKoszykaLink" href="@Url.Action("AddToCart", "Cart", new { id = news.SupplementId})">
-                            <img src="../Content/Images/cart.png"/>
-                        </a>
-                        <a class="kursSzczegolyLink" href="@Url.Action("Details", "Supplement", new { id= news.SupplementId})">
-                            <div class="newFlag"></div>
-                            <img class="kurs" src="@Url.ProductsPicturePath(news.ImageFileName)"/>
-                            <h1>
-                                @news.Name - @news.Producer
-                            </h1>
-                        </a>
-                    </article>
-                </li>
+                <div class="col-md-4 thumbnail" style="overflow: hidden">
+                    <a class="cartIcon" href="@Url.Action("AddToCart", "Cart", new {id = news.SupplementId})">
+                        <img src="../Content/Images/cart.png"/>
+                    </a>
+                    <a class="details-link" href="@Url.Action("Details", "Supplement", new {id = news.SupplementId})">
+                        <div class="newFlag"></div>
+                        <img class="product-img" src="@Url.ProductsPicturePath(news.ImageFileName)"/>
+                        <h1>
+                            @news.Name - @news.Producer
+                        </h1>
+                    </a>
+                </div>
             }
-        </ul>
+
+        </div>
     </div>
-</div>
 </div>
