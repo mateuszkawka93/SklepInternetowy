@@ -75,7 +75,7 @@ namespace SklepInternetowy.Data_Access_Layer
                     Producer = "4Nutrition",
                     Name = "VitaminPack",
                     AddTime = DateTime.Now,
-                    Bestseller = true,
+                    Bestseller = false,
                     CategoryId = 7,
                     Price = 20,
                     ImageFileName = "vitamins.png",

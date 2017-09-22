@@ -9,6 +9,14 @@ namespace SklepInternetowy
         {
             routes.IgnoreRoute("{resource}.axd/{*pathInfo}");
 
+
+            routes.MapRoute(
+                name: "ProductsList",
+                url: "category/{categoryname}",
+                defaults: new {controller = "Supplement", action = "List"}
+
+            );
+
             routes.MapRoute(
                 name: "StaticPages",
                 url: "page/{name}.html",

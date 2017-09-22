@@ -12,8 +12,13 @@
         <a class="cartIcon" href="@Url.Action("AddToCart", "Cart", new {id = products.SupplementId})">
             <img src="@Url.Content("~/Content/Images/cart.png")">
         </a>
-
+        
+        
         <a class="details-link" href="@Url.Action("Details", "Supplement", new {id = products.SupplementId})">
+            @if (products.Bestseller)
+            {
+                <div class="bestsellerFlag"></div>
+            }
             <img class="product-img" src="@Url.ProductsPicturePath(products.ImageFileName)">
             <h1>
                 @products.Producer - @products.Name

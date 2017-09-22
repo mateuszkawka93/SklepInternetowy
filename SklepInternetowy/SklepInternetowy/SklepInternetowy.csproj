@@ -250,7 +250,6 @@
     <Content Include="Views\Supplement\List.cshtml" />
     <Content Include="Views\Cart\AddToCart.cshtml" />
     <Content Include="Views\Supplement\_CategoriesMenu.cshtml" />
-    <Content Include="Views\Shared\_Layout_CategoriesMenu.cshtml" />
     <Content Include="Views\Supplement\_SupplementsList.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
