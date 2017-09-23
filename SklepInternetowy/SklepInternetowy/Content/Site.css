@@ -1,4 +1,4 @@
-html, body, div, span, object, iframe,
+﻿html, body, div, span, object, iframe,
 h1, h2, h3, h4, h5, h6, p, blockquote, pre,
 abbr, address, cite, code,
 del, dfn, em, img, ins, kbd, q, samp,
@@ -330,7 +330,6 @@ ul.MalaListaKategorii li {
 	ul.MalaListaKategorii li a:hover h1 {
 		top: 41%;
 	}
-
 
 
 .manageHeader {
@@ -1029,4 +1028,28 @@ div a:hover img.product-img {
 			-o-transition: opacity 1s ease;
 			-moz-transition: opacity 1s ease;
 			transition: opacity 1s ease;
+}
+
+#product-name {
+	font-size:30px;
+	text-align:center;
+}
+
+#producer-name {
+	font-size:25px;
+	text-align:center;
+}
+
+#product-price {
+	font-size: 30px;
+	text-align: center;
+	color: red;
+}
+
+#row-margin {
+	margin-top:5%;
+}
+
+#button-center {
+	text-align:center;
 }

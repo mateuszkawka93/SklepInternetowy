@@ -21,14 +21,15 @@ namespace SklepInternetowy.Controllers
                     .Include("Supplements")
                     .Single(a => a.CategoryName.ToUpper() == categoryname.ToUpper());
 
-            var products = categories.Supplements.ToList();
-            return View(products);
+            var supplement = categories.Supplements.ToList();
+            return View(supplement);
         }
 
-        public ActionResult Details(string id)
+        public ActionResult Details(int id)
         {
+            var supplement = db.Supplements.Find(id);
             
-            return View();
+            return View(supplement);
         }
 
         [ChildActionOnly]
