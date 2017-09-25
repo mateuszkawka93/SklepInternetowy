@@ -32,5 +32,7 @@ namespace SklepInternetowy.Controllers
         {
             return View(name);
         }
+
+        
     }
 }

@@ -1,6 +1,7 @@
 ﻿@model SklepInternetowy.Models.Supplement
 @using System.Web.UI.WebControls
 @using SklepInternetowy.Infrastructure
+@using MvcSiteMapProvider.Web.Html
 
 @{
     ViewBag.Title = "Details";
@@ -18,14 +19,16 @@
         <div class="col-md-9">
             <nav class="breadcrumb">
                 <img src="@Url.Content("~/Content/Images/minihouse.png")" />
-                <a class="breadcrumb-item" href="#">Start</a>
+                <a class="breadcrumb-item" href="#">
+                    @Html.MvcSiteMap().SiteMapPath()
+                </a>
 
-                <span class="breadcrumb-item active">Białko</span>
-            </nav>
 
-            <div class="col-md-5">
-                <img src="@Url.ProductsPicturePath(Model.ImageFileName)" style="width:100%;height:100%" />
-            </div>
+        </nav>
+
+        <div class="col-md-5">
+            <img src="@Url.ProductsPicturePath(Model.ImageFileName)" style="width:100%;height:100%" />
+        </div>
         <div class="col-md-7">
             <div class="row">
                 <div class="col-md-12">
@@ -60,6 +63,6 @@
             </div>
 
         </div>
-        </div>
     </div>
-    </div>
+</div>
+</div>

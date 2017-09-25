@@ -1,4 +1,6 @@
-﻿@{
+﻿@using MvcSiteMapProvider.Web.Html
+
+@{
     ViewBag.Title = "List";
     Layout = "~/Views/Shared/_Layout.cshtml";
 }
@@ -12,9 +14,11 @@
     <div class="col-md-9">
         <nav class="breadcrumb">
             <img src="@Url.Content("~/Content/Images/minihouse.png")" />
-            <a class="breadcrumb-item" href="#">Start</a>
+            <a class="breadcrumb-item" href="#">
+                @Html.MvcSiteMap().SiteMapPath()
+            </a>
 
-            <span class="breadcrumb-item active">Białko</span>
+           
         </nav>
 
         @Html.Partial("_SupplementsList")
