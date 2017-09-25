@@ -33,8 +33,10 @@ namespace SklepInternetowy.Controllers
         }
 
         [ChildActionOnly]
+        [OutputCache(Duration = 60000)]
         public ActionResult CategoriesMenu()
         {
+            
             var categories = db.Categories.ToList();
 
             return PartialView("_CategoriesMenu", categories);

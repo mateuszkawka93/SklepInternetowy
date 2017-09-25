@@ -227,8 +227,11 @@
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
     <Compile Include="Infrastructure\AppConfig.cs" />
+    <Compile Include="Infrastructure\Consts.cs" />
+    <Compile Include="Infrastructure\DefaultCacheProvider.cs" />
     <Compile Include="Infrastructure\DynamicNodeProviderCategories.cs" />
     <Compile Include="Infrastructure\DynamicNodeProviderProductDetails.cs" />
+    <Compile Include="Infrastructure\ICacheProvider.cs" />
     <Compile Include="Infrastructure\UrlHelpers.cs" />
     <Compile Include="Migrations\201708262118025_InitialCreate.cs" />
     <Compile Include="Migrations\201708262118025_InitialCreate.Designer.cs">
