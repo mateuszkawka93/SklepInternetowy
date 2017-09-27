@@ -6,24 +6,65 @@
 }
 
 <div class="container-fluid">
-<div class="row">
-    <div class="col-md-3">
+    <div class="row">
+        <div class="col-md-3">
 
-        @Html.Action("CategoriesMenu")
-    </div>
-    <div class="col-md-9">
-        <nav class="breadcrumb">
-            <img src="@Url.Content("~/Content/Images/minihouse.png")" />
-            <a class="breadcrumb-item" href="#">
-                @Html.MvcSiteMap().SiteMapPath()
-            </a>
-
+            @Html.Action("CategoriesMenu")
+        </div>
+        <div class="col-md-9">
+            <nav class="breadcrumb">
+                <img src="@Url.Content("~/Content/Images/minihouse.png")" />
+                <a class="breadcrumb-item" href="#">
+                    @Html.MvcSiteMap().SiteMapPath()
+                </a>
+                
+                <form id="search-form">
+                    <input id="search-filter" type="search" name="searchQuery"
+                           data-autocomplete-source="@Url.Action("SupplementsTip")"
+                           placeholder="Wprowadź tekst, aby wyfiltrować..." />
+                    <input type="submit" value="" />
+                </form>
            
-        </nav>
+                
 
-        @Html.Partial("_SupplementsList")
+            </nav>
 
+            @Html.Partial("_SupplementsList")
+
+        </div>
     </div>
 </div>
-    </div>
+
+@section Scripts
+{
+    @System.Web.Optimization.Scripts.Render("~/bundles/jqueryAndUI")
+
+    <script>
+
+        $(function() {
+
+            var setupAutoComplete = function() {
+
+                var $input = $(this);
+                var options =
+                {
+                    source: $input.attr("data-autocomplete-source"),
+                    select: function(event, ui) {
+                        $input = $(this);
+                        $input.val(ui.item.label);
+                        var $form = $input.parents("form:first");
+                        $form.submit();
+
+                    }
+                };
+
+                $input.autocomplete(options);
+            };
+
+            $("#search-filter").each(setupAutoComplete);
+        });
+
+    </script>
+
+}
 

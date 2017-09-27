@@ -18,8 +18,8 @@ namespace SklepInternetowy.Controllers
         {
             var categories =
                 db.Categories
-                    .Include("Supplements")
-                    .Single(a => a.CategoryName.ToUpper() == categoryname.ToUpper());
+                    .Include("Supplements").Where(k=>k.CategoryName.ToUpper() == categoryname.ToUpper()).Single();
+                    
 
             var supplement = categories.Supplements.ToList();
             return View(supplement);
@@ -40,6 +40,16 @@ namespace SklepInternetowy.Controllers
             var categories = db.Categories.ToList();
 
             return PartialView("_CategoriesMenu", categories);
+        }
+
+        public ActionResult SupplementsTip(string term)
+        {
+            var tips = db.Supplements.Where(a => !a.Hidden && a.Name.ToLower()
+                                                     .Contains(term.ToLower()))
+                .Take(5)
+                .Select(a => new {label = a.Name});
+
+            return Json(tips, JsonRequestBehavior.AllowGet);
         }
 
        

@@ -366,26 +366,7 @@ ul.MalaListaKategorii li {
 			height: 35px;
 		}
 
-#search-form {
-	float: right;
-	padding: 2px 5px 2px 2px;
-	border: 1px solid #e0e0e0;
-}
 
-	#search-form input[type=search] {
-		border: none;
-		height: 25px;
-		width: 224px;
-	}
-
-	#search-form input[type=submit] {
-		width: 20px;
-		border: none;
-		height: 20px;
-		padding: 5px;
-		background-size: 100% 100%;
-		background: transparent url(Images/searchlogo.png) no-repeat;
-	}
 
 div.newFlag {
 	background-image: url(Images/new.png);
@@ -1053,3 +1034,72 @@ div a:hover img.product-img {
 #button-center {
 	text-align:center;
 }
+
+#custom-search-input {
+        margin:0;
+        margin-top: 10px;
+        padding: 0;
+		float: right;
+    }
+ 
+    #custom-search-input .search-query {
+        padding-right: 3px;
+        padding-right: 4px \9;
+        padding-left: 3px;
+        padding-left: 4px \9;
+        /* IE7-8 doesn't have border-radius, so don't indent the padding */
+ 
+        margin-bottom: 0;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        border-radius: 3px;
+    }
+ 
+    #custom-search-input button {
+        border: 0;
+        background: none;
+        /** belows styles are working good */
+        padding: 2px 5px;
+        margin-top: 2px;
+        position: relative;
+        left: -28px;
+        /* IE7-8 doesn't have border-radius, so don't indent the padding */
+        margin-bottom: 0;
+        -webkit-border-radius: 3px;
+        -moz-border-radius: 3px;
+        border-radius: 3px;
+        color:#D9230F;
+    }
+ 
+    .search-query:focus + button {
+        z-index: 3;   
+    }
+
+.breadcrumb {
+    padding: 14px 20px;
+    margin-bottom: 20px;
+    list-style: none;
+    background-color: #f5f5f5;
+    border-radius: 4px;
+}
+
+#search-form {
+    float: right;
+    padding: 2px 5px 2px 2px;
+    border: 1px solid #e0e0e0;
+}
+
+    #search-form input[type=search] {
+        border: none;
+        height: 25px;
+        width: 224px;
+    }
+
+    #search-form input[type=submit] {
+        width: 20px;
+        border: none;
+        height: 20px;
+        padding: 5px;
+        background-size: 100% 100%;
+        background: transparent url(Images/searchlogo.png) no-repeat;
+    }
