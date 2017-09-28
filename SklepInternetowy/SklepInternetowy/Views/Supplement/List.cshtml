@@ -13,24 +13,25 @@
         </div>
         <div class="col-md-9">
             <nav class="breadcrumb">
-                <img src="@Url.Content("~/Content/Images/minihouse.png")" />
+                <img src="@Url.Content("~/Content/Images/minihouse.png")"/>
                 <a class="breadcrumb-item" href="#">
                     @Html.MvcSiteMap().SiteMapPath()
                 </a>
+
                 
-                <form id="search-form">
+
+                <form id="search-form" method="get" data-ajax="true" data-ajax-target="#CategoryListID">
                     <input id="search-filter" type="search" name="searchQuery"
                            data-autocomplete-source="@Url.Action("SupplementsTip")"
-                           placeholder="Wprowadź tekst, aby wyfiltrować..." />
-                    <input type="submit" value="" />
+                           placeholder="Wprowadź tekst, aby wyfiltrować..."/>
+                    <input type="submit" value=""/>
                 </form>
-           
-                
+
 
             </nav>
-
-            @Html.Partial("_SupplementsList")
-
+            <div id="CategoryListID">
+                @Html.Partial("_SupplementsList")
+            </div>
         </div>
     </div>
 </div>
@@ -61,10 +62,31 @@
                 $input.autocomplete(options);
             };
 
+            var ajaxSubmit = function() {
+                var $form = $(this);
+
+                var settings = {
+                    data: $(this).serialize,
+                    url: $(this).attr("action"),
+                    type: $(this).attr("method")
+                };
+
+                $.ajax(settings)
+                    .done(function(result) {
+                        var $targetElement = $($form.data("ajax-target"));
+                        var $newContent = $(result);
+                        $($targetElement).replaceWith($newContent);
+                        $newContent.effect("slide");
+                    });
+
+                return false;
+            };
+
+
             $("#search-filter").each(setupAutoComplete);
+            $("serach-form").submit(ajaxSubmit);
         });
 
     </script>
 
 }
-

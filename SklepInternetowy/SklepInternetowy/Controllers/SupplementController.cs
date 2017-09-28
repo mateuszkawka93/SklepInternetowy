@@ -14,14 +14,22 @@ namespace SklepInternetowy.Controllers
             return View();
         }
 
-        public ActionResult List(string categoryname)
+        public ActionResult List(string categoryname, string searchQuery = null)
         {
             var categories =
                 db.Categories
                     .Include("Supplements").Where(k=>k.CategoryName.ToUpper() == categoryname.ToUpper()).Single();
-                    
 
-            var supplement = categories.Supplements.ToList();
+
+            var supplement = categories.Supplements.Where(a => (searchQuery == null ||
+                                                                a.Name.ToLower().Contains(searchQuery.ToLower()) ||
+                                                                a.Producer.ToLower().Contains(searchQuery.ToLower())) &&
+                                                               !a.Hidden);
+            if (Request.IsAjaxRequest())
+            {
+                return PartialView("_SupplementsList", supplement);
+            }
+
             return View(supplement);
         }
 
