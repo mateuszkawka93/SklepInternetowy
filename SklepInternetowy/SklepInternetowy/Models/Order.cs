@@ -34,7 +34,7 @@ namespace SklepInternetowy.Models
         public OrderStatus OrderStatus { get; set; }
         public decimal OrderValue { get; set; }
 
-        private List<OrderPosition> OrderPositions { get; set; }
+        public List<OrderPosition> OrderPositions { get; set; }
     }
 
     public enum OrderStatus

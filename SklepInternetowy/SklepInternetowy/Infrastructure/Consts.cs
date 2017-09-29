@@ -5,5 +5,6 @@
         public const string NewSupplementCache = "NewsCacheKey";
         public const string BestsellerCache = "BestsellerCacheKey";
         public const string CategoriesCache = "CategoriesCacheKey";
+        public const string CartSessionKey = "CartSessionKey";
     }
 }
