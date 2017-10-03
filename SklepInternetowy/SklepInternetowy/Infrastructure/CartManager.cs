@@ -11,7 +11,7 @@ namespace SklepInternetowy.Infrastructure
         private SupplementsContext _db;
         private ISessionManager _session;
 
-        public CartManager(ISessionManager session, SupplementsContext db )
+        public CartManager(ISessionManager session, SupplementsContext db)
         {
             this._session = session;
             this._db = db;
@@ -24,7 +24,6 @@ namespace SklepInternetowy.Infrastructure
             if (_session.Get<List<CartPosition>>(Consts.CartSessionKey) == null)
             {
                 cart = new List<CartPosition>();
-
             }
 
             else
@@ -55,8 +54,6 @@ namespace SklepInternetowy.Infrastructure
                         Supplement = supplementToAdd,
                         Amount = 1,
                         Value = supplementToAdd.Price
-
-
                     };
                     cart.Add(newCartPosition);
                 }
@@ -103,28 +100,37 @@ namespace SklepInternetowy.Infrastructure
         {
             var cart = GetCart();
             newOrder.OrderDate = DateTime.Now;
-           // newOrder.userId = userId;
+            // newOrder.userId = userId;
 
             _db.Orders.Add(newOrder);
 
             if (newOrder.OrderPositions == null)
-            {
-                newOrder.OrderPositions = new List<OrderPosition>();
-                decimal cartValue = 0;
 
-                foreach (var cartItem in cart)
+                newOrder.OrderPositions = new List<OrderPosition>();
+            decimal cartValue = 0;
+
+            foreach (var cartItem in cart)
+            {
+                var newOrderPosition = new OrderPosition()
                 {
-                    var newOrderPosition = new OrderPosition()
-                    {
-                        SupplementId = cartItem.Supplement.SupplementId,
-                        Amount = cartItem.Amount,
-                        PurchasePrice = cartItem.Supplement.Price,
-                    }
-                    ;
-                }
+                    SupplementId = cartItem.Supplement.SupplementId,
+                    Amount = cartItem.Amount,
+                    PurchasePrice = cartItem.Supplement.Price,
+                };
+
+                cartValue += (cartItem.Amount*cartItem.Supplement.Price);
+                newOrder.OrderPositions.Add(newOrderPosition);
             }
 
+            newOrder.OrderValue = cartValue;
+            _db.SaveChanges();
+
+            return newOrder;
+        }
+
+        public void EmptyCart()
+        {
+            _session.Set<List<CartPosition>>(Consts.CartSessionKey, null);
         }
     }
-
 }

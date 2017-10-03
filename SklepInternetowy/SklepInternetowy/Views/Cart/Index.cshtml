@@ -1,0 +1,71 @@
+﻿@model SklepInternetowy.ViewModels.CartViewModel
+@using System.Web.UI.WebControls
+@using SklepInternetowy.Infrastructure
+
+@{
+    ViewBag.Title = "Koszyk";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+
+<div class="container">
+    <div class="row">
+        <div class="col-md-3">
+            @Html.Action("CategoriesMenu", "Supplement")
+        </div>
+        <div class="col-md-9">
+            <nav class="breadcrumb">
+                <img src="../Content/Images/minihouse.png"/>
+                <a class="breadcrumb-item" href="#">
+                    @Html.MvcSiteMap().SiteMapPath()
+                </a>
+            </nav>
+            <section>
+                <div class="SekcjaHeader">
+                    <h1>Twój koszyk</h1>
+                </div>
+                <table id="koszykTabela">
+
+                    @foreach (var cartPosition in Model.CartPositions)
+                    {
+                        <tr id="cartRow-@cartPosition.Supplement.SupplementId">
+                            <td>
+                                <a href="@Url.Action("Details", "Supplement", new {id = cartPosition.Supplement.SupplementId})">
+                                    <img src="@Url.Content("~/Content/Products/" + cartPosition.Supplement.ImageFileName)"/>
+                                </a>
+                            </td>
+                            <td>
+                                <a href="@Url.Action("Details", "Supplement", new {id = cartPosition.Supplement.SupplementId})">@cartPosition.Supplement.Name</a>
+                            </td>
+                            <td>Ilość: <span id="cartPositionAmount-@cartPosition.Supplement.SupplementId">@cartPosition.Amount</span></td>
+                            <td>@String.Format("{0:0.##}", cartPosition.Value) zł</td>
+                            <td>
+                                <a class="removeSupplement" data-id="@cartPosition.Supplement.SupplementId" href="#">Usuń</a>
+                            </td>
+                        </tr>
+                    }
+
+                    <tr id="empty-cart-message" @if (Model.CartPositions != null && Model.CartPositions.Count > 0)
+                                                {
+                                                    <text>class="hidden" </text>
+                                                }>
+                        <td>Twój koszyk jest pusty ! Może chcesz coś dodać ?</td>
+                    </tr>
+
+                </table>
+                <div id="CenaCalkowita" style="">
+                    Razem: <span id="totalPriceValue">@String.Format("{0:0.##}", Model.TotalPrice) </span> zł
+                </div>
+            </section>
+            <div class="btn-toolbar">
+                <a href="#" class="btn btn-info" role="button">Kontynnuj zakupy</a>
+
+                @if (Model.TotalPrice > 0)
+                {
+                    <a href="@Url.Action("Purchase", "Cart")" id="purchasebutton" class="btn btn-info" role="button">Zapłać</a>
+                }
+
+            </div>
+        </div>
+    </div>
+</div>
